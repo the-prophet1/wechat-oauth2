@@ -1,4 +1,4 @@
-package wechat
+package wechat_oauth2
 
 import (
 	"encoding/json"
