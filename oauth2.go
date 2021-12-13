@@ -109,8 +109,8 @@ func (cli *Client) getOauth2AccessTokenUrl(appid, secret, code string) string {
 }
 
 func (cli *Client) getOauth2AccessTokenRequest(appid, secret, code string) (*http.Request, error) {
-	url := cli.getOauth2AccessTokenUrl(appid, secret, code)
-	return http.NewRequest(http.MethodGet, url, nil)
+	tokenUrl := cli.getOauth2AccessTokenUrl(appid, secret, code)
+	return http.NewRequest(http.MethodGet, tokenUrl, nil)
 }
 
 func (cli *Client) getUserInfoUrl(accessToken, openid string) string {
@@ -118,8 +118,8 @@ func (cli *Client) getUserInfoUrl(accessToken, openid string) string {
 }
 
 func (cli *Client) getUserInfoRequest(token *AccessToken) (*http.Request, error) {
-	url := cli.getUserInfoUrl(token.Token, token.OpenID)
-	return http.NewRequest(http.MethodGet, url, nil)
+	infoUrl := cli.getUserInfoUrl(token.Token, token.OpenID)
+	return http.NewRequest(http.MethodGet, infoUrl, nil)
 }
 
 //GetWeChatAccessToken 根据appid,secret,code获取网页授权的accessToken
